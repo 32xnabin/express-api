@@ -4,7 +4,7 @@ const { v4: uuid } = require('uuid')
 const { customAlphabet: generate } = require('nanoid')
 const { generateJwt } = require('./helpers/generateJWT')
 const { sendEmail, sendPasswordResetEmail } = require('./helpers/mailer')
-const User = require('../models/user.modal')
+const User = require('../models/user.model')
 
 const CHARACTER_SET =
   '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
