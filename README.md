@@ -14,11 +14,11 @@
 
 - add those in the .env
 
+### Run
+
 ```
 npm install
 ```
-
-### Run
 
 ```
 npm start
