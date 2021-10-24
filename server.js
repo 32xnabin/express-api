@@ -4,8 +4,10 @@ const cors = require('cors')
 
 const app = express()
 
-var corsOptions = {
-  origin: 'http://localhost:3000',
+const corsOptions = {
+  origin: '*',
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
 }
 
 app.use(cors(corsOptions))
