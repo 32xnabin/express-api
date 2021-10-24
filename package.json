@@ -27,5 +27,8 @@
     "nodemailer": "^6.7.0",
     "nodemon": "^2.0.13",
     "uuid": "^8.3.2"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
