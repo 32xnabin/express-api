@@ -8,6 +8,7 @@ exports.create = (req, res) => {
   //   res.status(400).send({ message: "Content can not be empty!" });
   //   return;
   // }
+
   console.log('============>', req.body)
   const {
     case_type,
@@ -23,6 +24,8 @@ exports.create = (req, res) => {
     email_subject,
     email_description,
     notes,
+    add_to_report,
+    duplicate_case,
     logged_by,
     images,
   } = req.body
@@ -41,6 +44,8 @@ exports.create = (req, res) => {
     email_subject,
     email_description,
     notes,
+    add_to_report,
+    duplicate_case,
     logged_by,
     images,
   })

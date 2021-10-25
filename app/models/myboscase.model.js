@@ -17,6 +17,8 @@ module.exports = (mongoose) => {
       email_subject: String,
       email_description: String,
       notes: String,
+      add_to_report: Boolean,
+      duplicate_case: Boolean,
       logged_by: String,
       images: [String],
     },
