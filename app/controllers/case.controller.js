@@ -66,6 +66,7 @@ exports.create = (req, res) => {
 //Retrieve all Cases from the database.
 exports.findAll = (req, res) => {
   Myboscase.find({})
+    .sort({ updatedAt: -1 })
     .then((data) => {
       res.send(data)
     })
