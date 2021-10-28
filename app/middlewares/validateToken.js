@@ -20,7 +20,7 @@ async function validateToken(req, res, next) {
     let user = await User.findOne({
       accessToken: token,
     })
-    // console.log(token);
+
     if (!user) {
       result = {
         error: true,
@@ -45,7 +45,6 @@ async function validateToken(req, res, next) {
     req.decoded = result
     next()
   } catch (err) {
-    // console.log(err);
     if (err.name === 'TokenExpiredError') {
       result = {
         error: true,

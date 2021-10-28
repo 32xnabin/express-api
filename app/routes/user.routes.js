@@ -16,8 +16,6 @@ module.exports = (app) => {
 
   router.patch('/reset', cleanBody, AuthController.ResetPassword)
 
-  router.get('/referred', validateToken, AuthController.ReferredAccounts)
-
   router.get('/logout', validateToken, AuthController.Logout)
 
   app.use('/api/users', router)

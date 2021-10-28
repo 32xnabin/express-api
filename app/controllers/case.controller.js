@@ -3,13 +3,6 @@ const Myboscase = db.myboscases
 
 // Create and Save a new Case
 exports.create = (req, res) => {
-  // Validate request
-  // if (!req.body.title) {
-  //   res.status(400).send({ message: "Content can not be empty!" });
-  //   return;
-  // }
-
-  console.log('============>', req.body)
   const {
     case_type,
     added_date,
@@ -94,7 +87,6 @@ exports.findOne = (req, res) => {
 
 // Update a Case by the id in the request
 exports.update = (req, res) => {
-  console.log('=======updateee=====>', req.body)
   if (!req.body) {
     return res.status(400).send({
       message: 'Data to update can not be empty!',

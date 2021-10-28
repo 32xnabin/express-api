@@ -25,7 +25,6 @@ exports.Signup = async (req, res) => {
   try {
     const result = userSchema.validate(req.body)
     if (result.error) {
-      console.log(result.error.message)
       return res.json({
         error: true,
         status: 400,
@@ -310,7 +309,6 @@ exports.Validate = async (req, res) => {
 }
 
 exports.ResetPassword = async (req, res) => {
-  console.log('==resetting....', req.body)
   try {
     const { token, newPassword, confirmPassword } = req.body
     if (!token || !newPassword || !confirmPassword) {
@@ -350,28 +348,6 @@ exports.ResetPassword = async (req, res) => {
   } catch (error) {
     console.error('reset-password-error', error)
     return res.status(500).json({
-      error: true,
-      message: error.message,
-    })
-  }
-}
-
-exports.ReferredAccounts = async (req, res) => {
-  try {
-    const { id, referralCode } = req.decoded
-
-    const referredAccounts = await User.find(
-      { referrer: referralCode },
-      { email: 1, referralCode: 1, _id: 0 },
-    )
-    return res.send({
-      success: true,
-      accounts: referredAccounts,
-      total: referredAccounts.length,
-    })
-  } catch (error) {
-    console.error('fetch-referred-error.', error)
-    return res.stat(500).json({
       error: true,
       message: error.message,
     })
