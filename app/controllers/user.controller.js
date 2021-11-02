@@ -2,8 +2,8 @@ const Joi = require('joi')
 require('dotenv').config()
 const { v4: uuid } = require('uuid')
 const { customAlphabet: generate } = require('nanoid')
-const { generateJwt } = require('./helpers/generateJWT')
-const { sendEmail, sendPasswordResetEmail } = require('./helpers/mailer')
+const { generateJwt } = require('../middlewares/generateJWT')
+const { sendEmail, sendPasswordResetEmail } = require('../services/EmailServices')
 const User = require('../models/user.model')
 
 const CHARACTER_SET =
