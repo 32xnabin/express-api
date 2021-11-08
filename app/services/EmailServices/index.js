@@ -1,21 +1,21 @@
-require("dotenv").config();
-const nodemailer = require("nodemailer");
+require('dotenv').config();
+const nodemailer = require('nodemailer');
 
 async function sendEmail(email, code) {
   try {
-    const smtpEndpoint = "smtp.sendgrid.net";
+    const smtpEndpoint = 'smtp.sendgrid.net';
 
     const port = 465;
 
-    const senderAddress = "nabinwell@gmail.com";
+    const senderAddress = 'nabinwell@gmail.com';
 
     var toAddress = email;
 
-    const smtpUsername = "apikey";
+    const smtpUsername = 'apikey';
 
     const smtpPassword = process.env.SG_APIKEY;
 
-    var subject = "Verify your email";
+    var subject = 'Verify your email';
 
     // The body of the email for recipients
     var body_html = `<!DOCTYPE> 
@@ -47,35 +47,38 @@ async function sendEmail(email, code) {
     let info = await transporter.sendMail(mailOptions);
     return { error: false };
   } catch (error) {
-    console.error("send-email-error", error);
+    console.error('send-email-error', error);
     return {
       error: true,
-      message: "Cannot send email",
+      message: 'Cannot send email',
     };
   }
 }
 
 async function sendPasswordResetEmail(email, link) {
   try {
-    const smtpEndpoint = "smtp.sendgrid.net";
+    const smtpEndpoint = 'smtp.sendgrid.net';
 
     const port = 465;
 
-    const senderAddress = "nabinwell@gmail.com";
+    const senderAddress = 'nabinwell@gmail.com';
 
     var toAddress = email;
 
-    const smtpUsername = "apikey";
+    const smtpUsername = 'apikey';
 
     const smtpPassword = process.env.SG_APIKEY;
 
-    var subject = "Reset your password";
+    var subject = 'Reset your password';
 
     // The body of the email for recipients
     var body_html = `<!DOCTYPE> 
     <html>
       <body>
-        <p>Click the link to rest your password is :<a href=${link}>${link}</a>
+        <p>Hi,</p>
+        <p>Click the link to rest your password is :<a href=${link}>${link}</a></p>
+        <p>Thanks</p>
+        <p>MyBOS team</p>
       </body>
     </html>`;
 
@@ -101,12 +104,12 @@ async function sendPasswordResetEmail(email, link) {
     let info = await transporter.sendMail(mailOptions);
     return { error: false };
   } catch (error) {
-    console.error("send-email-error", error);
+    console.error('send-email-error', error);
     return {
       error: true,
-      message: "Cannot send email",
+      message: 'Cannot send email',
     };
   }
 }
 
-module.exports = { sendEmail,sendPasswordResetEmail };
+module.exports = { sendEmail, sendPasswordResetEmail };
