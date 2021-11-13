@@ -19,8 +19,6 @@ exports.create = (req, res) => {
     email_subject,
     email_description,
     notes,
-    add_to_report,
-    duplicate_case,
     logged_by,
     images,
   } = req.body;
@@ -41,8 +39,6 @@ exports.create = (req, res) => {
     email_subject,
     email_description,
     notes,
-    add_to_report,
-    duplicate_case,
     logged_by,
     images,
   });
@@ -54,6 +50,7 @@ exports.create = (req, res) => {
       res.send(data);
     })
     .catch((err) => {
+      console.log('----->>>>', err);
       res.status(500).send({
         message: err.message || 'Some error occurred while creating the Case.',
       });
